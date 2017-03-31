@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+<div id="target"></div>
+<form>
+Yritys <input type="text" id="company"><br>
+
+<input type="button" onClick="save()" value="Lisää">
+
+
+</form>
+<script>
+function save(){
+	var project = {};
+	project.company = document.getElementById("company").value;
+	console.log(project);
+	
+	 $.ajax({
+	        url: '/api/project',
+	        type: 'POST',
+	        dataType: 'JSON',
+	        contentType: "application/json",
+	        success: function (data) {
+	        	console.log("jippii");
+	            $('#target').html(data.msg);
+	        },
+	        error: function() { // if error occured
+	            alert('fail:');
+	        },
+	        data:JSON.stringify(project)
+	    });
+
+}
+</script>
+</body>
+</html>
