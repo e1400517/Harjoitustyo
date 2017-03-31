@@ -6,10 +6,17 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <body>
+ 
+
 <div id="target"></div>
 <form>
 Yritys <input type="text" id="company"><br>
-
+Email <input type="text" id="email"><br>
+Kuvaus <input type="text" id="description"><br>
+<br>
+<br>
+<br>
+Tags <input type="text" id="tags"><br>
 <input type="button" onClick="save()" value="Lisää">
 
 
@@ -18,6 +25,9 @@ Yritys <input type="text" id="company"><br>
 function save(){
 	var project = {};
 	project.company = document.getElementById("company").value;
+	project.email = document.getElementById("email").value;
+	project.description = document.getElementById("description").value;
+	project.tags = document.getElementById("tags").value;
 	console.log(project);
 	
 	 $.ajax({

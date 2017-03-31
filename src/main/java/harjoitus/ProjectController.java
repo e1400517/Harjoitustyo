@@ -26,4 +26,16 @@ public class ProjectController {
         	return repository.findOne(id);
     }
 
+        @RequestMapping(value = "/api/project" , method = RequestMethod.DELETE)
+        public Project delete(@RequestBody Project jsonWifi) {
+        	return repository.save(jsonWifi);
+    //do business logic
+        	
+     }
+        
+        @RequestMapping(value = "/api/project" , method = RequestMethod.PUT)
+        public @ResponseBody Project updateWifi(@RequestBody Project jsonWifi) {
+    return repository.save(jsonWifi);
+    
+        }
 }
