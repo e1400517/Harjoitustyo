@@ -32,14 +32,14 @@ public class StudentController {
         	return repository.findOne(id);
     }
 
-        @RequestMapping(value = "/api/project" , method = RequestMethod.DELETE)
+        @RequestMapping(value = "/api/student" , method = RequestMethod.DELETE)
         public Student delete(@RequestBody Student jsonWifi) {
         	return repository.save(jsonWifi);
     //do business logic
         	
      }
         
-        @RequestMapping(value = "/api/project" , method = RequestMethod.PUT)
+        @RequestMapping(value = "/api/student" , method = RequestMethod.PUT)
         public @ResponseBody Student updateWifi(@RequestBody Student jsonWifi) {
     return repository.save(jsonWifi);    
 
