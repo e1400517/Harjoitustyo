@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+ 
+
+<div id="target"></div>
+<form>
+Nimesi: <input type="text" id="name"><br>
+Email: <input type="text" id="email"><br>
+Puhelinnumerosi: <input type="text" id="mobile"><br>
+<br>
+<br>
+<br>
+Opintopisteesi <input type="text" id="credits"><br>
+<input type="button" onClick="save()" value="Lisää tietosi">
+
+
+</form>
+<script>
+function save(){
+	var student = {};
+	student.nimi = document.getElementById("name").value;
+	student.email = document.getElementById("email").value;
+	student.mobile = document.getElementById("mobile").value;
+	student.credits = document.getElementById("credits").value;
+	console.log(student);
+	
+	 $.ajax({
+	        url: '/api/student',
+	        type: 'POST',
+	        dataType: 'JSON',
+	        contentType: "application/json",
+	        success: function (data) {
+	        	console.log("jippii");
+	            $('#target').html(data.msg);
+	        },
+	        error: function() { // if error occured
+	            alert('fail:');
+	        },
+	        data:JSON.stringify(student)
+	    });
+
+}
+</script>
+</body>
+</html>
